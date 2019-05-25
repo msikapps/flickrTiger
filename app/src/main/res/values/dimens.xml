@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_base">12dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="size_large">14sp</dimen>
+    <dimen name="size_medium">12sp</dimen>
+    <dimen name="size_small">11sp</dimen>
+    <dimen name="size_smaller">10sp</dimen>
+    <dimen name="radius">12dp</dimen>
+</resources>

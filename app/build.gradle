@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "tigerspike.com.flickrgallery"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://www.flickr.com/services/\""
+        }
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://www.flickr.com/services/\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'com.google.android.material:material:1.0.0'
+    //retrofit libs
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation ('com.squareup.retrofit2:converter-simplexml:2.5.0') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.12.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.6.0'
+
+    // glide for image loading
+    implementation('com.github.bumptech.glide:glide:4.9.0') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    annotationProcessor 'androidx.annotation:annotation:1.0.0'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    //junit + mockito
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test:core:1.1.0'
+    testImplementation 'org.mockito:mockito-core:2.7.22'
+    testImplementation 'org.mockito:mockito-android:2.7.22'
+
+    //robolectric
+    testImplementation 'org.robolectric:robolectric:4.2'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+
+    //espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    testImplementation "org.apache.httpcomponents:httpclient:4.5.6"
+}
