@@ -1,9 +1,6 @@
 package tigerspike.com.flickrgallery.main;
 
 import android.os.Bundle;
-import android.util.Log;
-
-import com.google.gson.Gson;
 
 import java.util.List;
 

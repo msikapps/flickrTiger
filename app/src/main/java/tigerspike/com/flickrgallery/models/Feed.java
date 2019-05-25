@@ -1,8 +1,6 @@
 package tigerspike.com.flickrgallery.models;
 
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.NamespaceList;
 import org.simpleframework.xml.Root;
 
 import java.io.Serializable;

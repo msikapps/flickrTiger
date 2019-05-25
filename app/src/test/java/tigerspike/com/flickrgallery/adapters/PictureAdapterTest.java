@@ -86,7 +86,7 @@ public class PictureAdapterTest {
         assertEquals(holder.publisherText.getText().toString(), entry.getAuthor().getName());
         holder.itemView.performClick();
         Intent intent = shadow.peekNextStartedActivity();
-        assertEquals(intent.getComponent(),new ComponentName(context,PreviewerActivity.class));
+        assertEquals(intent.getComponent(), new ComponentName(context, PreviewerActivity.class));
     }
 
 

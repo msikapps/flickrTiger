@@ -15,7 +15,6 @@ import tigerspike.com.flickrgallery.models.Author;
 import tigerspike.com.flickrgallery.models.Entry;
 import tigerspike.com.flickrgallery.models.Link;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 
@@ -23,25 +22,25 @@ import static org.mockito.Mockito.spy;
 public class MainActivityTest {
 
     @Mock
-    MainPresenter presenter;
+    private MainPresenter presenter;
 
-    MainActivity view;
+    private MainActivity view;
+
+    private List<Entry> entryList;
+    private Link link;
+    private List<Link> linkList;
+    private Author author;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         view = Robolectric.setupActivity(MainActivity.class);
         view.setPresenter(presenter);
-    }
-
-    @Test
-    public void populateGalleryShouldFillList() {
-        view = spy(view);
         Entry entry = new Entry();
-        List<Entry> entryList = new ArrayList<>();
-        Link link = new Link();
-        List<Link> linkList = new ArrayList<>();
-        Author author = new Author();
+        entryList = new ArrayList<>();
+        link = new Link();
+        linkList = new ArrayList<>();
+        author = new Author();
         author.setName("Bakr");
         link.setHref("blank");
         link.setRel("alternate");
@@ -52,8 +51,13 @@ public class MainActivityTest {
         entry.setLinks(linkList);
         entryList.add(entry);
         entryList.add(entry);
+    }
+
+    @Test
+    public void populateGalleryShouldFillList() {
+        view = spy(view);
         view.populateGallery(entryList);
-        assertTrue(view.imageGallery.getAdapter().getItemCount()> 0);
+        assertTrue(view.imageGallery.getAdapter().getItemCount() > 0);
     }
 
     @Test

@@ -16,7 +16,6 @@ import androidx.test.core.app.ApplicationProvider;
 import retrofit2.Response;
 import tigerspike.com.flickrgallery.models.Entry;
 import tigerspike.com.flickrgallery.models.Feed;
-import tigerspike.com.flickrgallery.models.Link;
 import tigerspike.com.flickrgallery.services.NetworkService;
 
 import static org.mockito.ArgumentMatchers.any;
