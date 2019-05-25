@@ -8,6 +8,7 @@ public interface MainContract {
 
     interface View {
         void populateGallery(List<Entry> pictureList);
+
         void leaveScreen();
     }
 

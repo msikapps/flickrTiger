@@ -1,7 +1,5 @@
 package tigerspike.com.flickrgallery.services;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import retrofit2.Call;
 import retrofit2.Callback;

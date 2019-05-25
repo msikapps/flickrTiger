@@ -29,10 +29,10 @@ import static org.junit.Assert.assertTrue;
 public class PreviewerActivityTest {
 
     @Mock
-    PreviewerPresenter presenter;
-    Context context;
-    PreviewerActivity view;
-    Drawable expectedDrawable;
+    private PreviewerPresenter presenter;
+    private Context context;
+    private PreviewerActivity view;
+    private Drawable expectedDrawable;
 
     @Before
     public void setUp() throws Exception {

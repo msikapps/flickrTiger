@@ -11,10 +11,10 @@ public class Link implements Serializable {
     public Link() {
     }
 
-    @Attribute(required = false)
+    @Attribute(name = "href", required = false)
     private String href;
 
-    @Attribute(required = false)
+    @Attribute(name = "rel", required = false)
     private String rel;
 
     @Attribute(name = "type", required = false)

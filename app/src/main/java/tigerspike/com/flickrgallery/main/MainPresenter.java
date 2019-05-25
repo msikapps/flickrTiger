@@ -1,7 +1,6 @@
 package tigerspike.com.flickrgallery.main;
 
 import android.content.Context;
-import android.util.Log;
 
 import retrofit2.Response;
 import tigerspike.com.flickrgallery.models.Feed;

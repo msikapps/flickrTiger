@@ -20,6 +20,7 @@ import tigerspike.com.flickrgallery.network.RetrofitClientInstance;
 import tigerspike.com.flickrgallery.utils.Constant;
 
 import static org.junit.Assert.assertEquals;
+
 @RunWith(RobolectricTestRunner.class)
 public class NetworkServiceTest {
 

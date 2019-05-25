@@ -2,6 +2,7 @@ package tigerspike.com.flickrgallery.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -21,6 +22,7 @@ import tigerspike.com.flickrgallery.models.Entry;
 import tigerspike.com.flickrgallery.models.Link;
 import tigerspike.com.flickrgallery.previewer.PreviewerActivity;
 import tigerspike.com.flickrgallery.utils.Constant;
+
 
 public class PictureAdapter extends RecyclerView.Adapter<PictureViewHolder> {
 
@@ -62,10 +64,8 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureViewHolder> {
                     pictureLink = link;
             }
         }
-        if (pictureLink != null) {
-            Glide.with(context).load(pictureLink.getHref()).into(holder.picture);
-            previewIntent.putExtra(Constant.PICTURE_URL, pictureLink.getHref());
-        }
+        Glide.with(context).load(pictureLink.getHref()).into(holder.picture);
+        previewIntent.putExtra(Constant.PICTURE_URL, pictureLink.getHref());
         holder.pictureTitle.setText(picture.getTitle());
         if (!picture.getPublishedOn().isEmpty()) {
             try {
@@ -73,14 +73,14 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureViewHolder> {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, d MMM yyyy '-' hh:mm");
                 holder.publishedText.setText(simpleDateFormat.format(publishedOn));
             } catch (ParseException e) {
-                e.printStackTrace();
+                Log.e(Constant.TAG, "onBindViewHolder: " + e.getMessage());
             }
         }
         holder.publisherText.setText(picture.getAuthor().getName());
         holder.itemView.setOnClickListener(v -> {
             if (activity != null)
                 previewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                v.getContext().startActivity(previewIntent);
+            v.getContext().startActivity(previewIntent);
         });
     }
 
